@@ -12,5 +12,5 @@ resource "vault_ldap_auth_backend" "ldap" {
   starttls     = var.ldap_auth_starttls
   depends_on = [
     vault_namespace.new,
-  ] 
+  ]
 }

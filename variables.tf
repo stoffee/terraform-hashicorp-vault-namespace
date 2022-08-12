@@ -5,7 +5,7 @@ variable "vault_addr" {
 }
 variable "vault_token" {
   description = "Token to be used when configuring Vault"
-  sensitive = true
+  sensitive   = true
 }
 variable "namespace" {
   description = "Desired name of the NAMESPACE to create and configure"
@@ -17,9 +17,9 @@ variable "userpass_auth_enabled" {
 }
 variable "kv2_enabled" {
   description = "Enabled or disable KV2"
-  default = false
+  default     = false
 }
- variable "aws_auth_enabled" {
+variable "aws_auth_enabled" {
   description = "Enables AWS auth"
   type        = bool
   default     = false
@@ -33,7 +33,7 @@ variable "aws_auth_engine_secret_key" {
   description = "AWS Secret for AWS Auth Engine"
   #default = null
   sensitive = true
-  default     = "YOURAWSSECREzt"
+  default   = "YOURAWSSECREzt"
 }
 variable "aws_secret_enabled" {
   description = "Enables AWS secrets"
@@ -103,7 +103,7 @@ variable "azure_secrets_engine_tenant_id" {
 }
 variable "azure_secret_engine_path" {
   description = "Vault path to be used for Azure Secrets Engine"
-  default = "azuresecrets"
+  default     = "azuresecrets"
 }
 variable "azure_secrets_role_application_object_id" {
   description = "Azure Existing Service Principale to be used for the Roles"
@@ -136,7 +136,7 @@ variable "gcp_secrets_enabled" {
 }
 variable "gcp_secrets_engine_project" {
   description = "GCP Secret Engine Project"
-  default = "HCP-Vault"
+  default     = "HCP-Vault"
 }
 
 variable "ldap_auth_enabled" {
@@ -146,41 +146,78 @@ variable "ldap_auth_enabled" {
 }
 variable "ldap_auth_engine_ldap_url" {
   description = "LDAP binddn https://www.vaultproject.io/docs/auth/ldap#binddn"
-  default = "ldap://ldap.mydomain.com"
+  default     = "ldap://ldap.mydomain.com"
 }
 variable "ldap_auth_engine_bindpass" {
   description = "LDAP bindpass https://www.vaultproject.io/docs/auth/ldap#bindpass"
-  sensitive=true
+  sensitive   = true
 }
 variable "ldap_auth_userdn" {
   description = "LDAP binddn https://www.vaultproject.io/docs/auth/ldap#url"
-  default = "DC=na,DC=mydomain,DC=com"
+  default     = "DC=na,DC=mydomain,DC=com"
 }
 variable "ldap_auth_userattr" {
   description = "LDAP userattr https://www.vaultproject.io/docs/auth/ldap#userattr"
-  default = "cn"
+  default     = "cn"
 }
 variable "ldap_auth_groupattr" {
   description = "LDAP groupattr https://www.vaultproject.io/docs/auth/ldap#groupattr"
-  default = "cn"
+  default     = "cn"
 }
 variable "ldap_auth_groupdn" {
   description = "LDAP groupdn https://www.vaultproject.io/docs/auth/ldap#groupdn"
-  default = "OU=MyGroups,OU=MyOrg,OU=Exchange,DC=na,DC=MyDomain,DC=com"
+  default     = "OU=MyGroups,OU=MyOrg,OU=Exchange,DC=na,DC=MyDomain,DC=com"
 }
 variable "ldap_auth_groupfilter" {
   description = "LDAP groupfilter https://www.vaultproject.io/docs/auth/ldap#groupfilter"
-  default = "(&(objectClass=group)(member:1.2.840.113556.1.4.1941:={{.UserDN}}))"
+  default     = "(&(objectClass=group)(member:1.2.840.113556.1.4.1941:={{.UserDN}}))"
 }
 variable "ldap_auth_binddn" {
   description = "LDAP binddn https://www.vaultproject.io/docs/auth/ldap#binddn"
-  default = "cn=vault_admin_user,ou=Users,dc=mydomain,dc=com"
+  default     = "cn=vault_admin_user,ou=Users,dc=mydomain,dc=com"
 }
 variable "ldap_auth_insecure_tls" {
   description = "LDAP insecure_tls https://www.vaultproject.io/docs/auth/ldap#insecure_tls"
-  default = false
+  default     = false
 }
 variable "ldap_auth_starttls" {
   description = "LDAP starttls https://www.vaultproject.io/docs/auth/ldap#starttls"
-  default = true
+  default     = true
+}
+variable "ad_secrets_enabled" {
+  description = "Enables Active Dirctory Secrets Engine"
+  type        = bool
+  default     = false
+}
+variable "ad_secret_engine_backend" {
+  description = "Vault path for AD Secrets Engine https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/ad_secret_role#backend"
+  default     = "ad"
+}
+variable "ad_secret_engine_binddn" {
+  description = "BindDN for AD Secrets Engine"
+  default     = "CN=Administrator,CN=Users,DC=corp,DC=example,DC=net"
+}
+variable "ad_secret_engine_bindpass" {
+  description = "BindPass for AD Secrets Engine"
+  default     = "SuperSecretPassw0rd"
+}
+variable "ad_secret_engine_ldap_url" {
+  description = "LDAP URL for AD"
+  default     = "ldaps://ad.mydomain.com"
+}
+variable "ad_secret_engine_insecure_tls" {
+  description = "INsecure TLS for AD?"
+  default     = true
+}
+variable "ad_secret_engine_userdn" {
+  description = "UserDN for AD Secrets Engine"
+  default     = "CN=Users,DC=corp,DC=example,DC=net"
+}
+variable "ad_secret_engine_role" {
+  description = "Role for AD Secrets Engine https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/ad_secret_role#role"
+  default     = "bob"
+}
+variable "ad_secret_engine_service_account_name" {
+  description = "Service account name for AD Secrets Engine https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/ad_secret_role#service_account_name"
+  default     = "bob"
 }

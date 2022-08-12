@@ -1,8 +1,8 @@
 # # Create an eaas-client policy in the new namespace
 resource "vault_policy" "eaas-client_policy" {
-  namespace = vault_namespace.new.path
+  namespace  = vault_namespace.new.path
   depends_on = [vault_namespace.new]
-  name   = "eaas-client"
+  name       = "eaas-client"
   #policy = file("policies/eaas-client-policy.hcl")
   policy = <<EOT
   # Permits CRUD operation on kv-v2
@@ -29,7 +29,7 @@ EOT
 
 resource "vault_policy" "super-user-pol" {
   name = "super-user-pol"
-depends_on = [
+  depends_on = [
     vault_namespace.new,
   ]
   policy = <<EOT
@@ -41,7 +41,7 @@ EOT
 
 resource "vault_policy" "azure_cloud_admin" {
   name = "azure_cloud_admin"
-depends_on = [
+  depends_on = [
     vault_namespace.new,
   ]
   policy = <<EOT
@@ -53,7 +53,7 @@ EOT
 
 resource "vault_policy" "kv-ro" {
   name = "kv-ro"
-depends_on = [
+  depends_on = [
     vault_namespace.new,
   ]
   policy = <<EOT
@@ -65,7 +65,7 @@ EOT
 
 resource "vault_policy" "adfs-kv-full" {
   name = "adfs-kv-full"
-depends_on = [
+  depends_on = [
     vault_namespace.new,
   ]
   policy = <<EOT
@@ -77,7 +77,7 @@ EOT
 
 resource "vault_policy" "approle-access" {
   name = "approle-access"
-depends_on = [
+  depends_on = [
     vault_namespace.new,
   ]
   policy = <<EOT
@@ -100,7 +100,7 @@ EOT
 
 resource "vault_policy" "kv-full" {
   name = "kv-full"
-depends_on = [
+  depends_on = [
     vault_namespace.new,
   ]
   policy = <<EOT
@@ -113,7 +113,7 @@ EOT
 
 resource "vault_policy" "kv-rl" {
   name = "kv-rl"
-depends_on = [
+  depends_on = [
     vault_namespace.new,
   ]
   policy = <<EOT
@@ -125,7 +125,7 @@ EOT
 
 resource "vault_policy" "kv-testing" {
   name = "kv-testing"
-depends_on = [
+  depends_on = [
     vault_namespace.new,
   ]
   policy = <<EOT

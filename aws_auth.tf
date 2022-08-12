@@ -10,7 +10,7 @@ resource "vault_auth_backend" "aws" {
   ]
 }
 resource "vault_aws_auth_backend_client" "main" {
-  count = var.aws_auth_enabled ? 1 : 0
+  count      = var.aws_auth_enabled ? 1 : 0
   backend    = vault_auth_backend.aws[0].path
   access_key = var.aws_auth_engine_access_key
   secret_key = var.aws_auth_engine_secret_key
@@ -20,7 +20,7 @@ resource "vault_aws_auth_backend_client" "main" {
 }
 
 resource "vault_aws_auth_backend_role" "aws-iam-creds" {
-  count = var.aws_auth_enabled ? 1 : 0
+  count                    = var.aws_auth_enabled ? 1 : 0
   backend                  = vault_auth_backend.aws[0].path
   role                     = "aws-iam-creds"
   auth_type                = "iam"

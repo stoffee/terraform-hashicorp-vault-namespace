@@ -30,6 +30,7 @@ module "vault-namespace" {
   # Active Directory Secrets
   #
   ad_secrets_enabled = true
+
   #
   # AppRole Auth
   #

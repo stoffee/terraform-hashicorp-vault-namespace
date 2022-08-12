@@ -1,7 +1,7 @@
 # Create an admins policy in the new namespace
 resource "vault_policy" "admin_policy" {
   namespace = vault_namespace.new.path
-  name   = "admins"
+  name      = "admins"
   #policy = file("policies/admin-policy.hcl")
   policy = <<EOT
   # Manage auth methods broadly across Vault

@@ -29,8 +29,8 @@ terraform {
 
 
 provider "vault" {
-  address   = var.vault_addr
-  token     = var.vault_token
+  address = var.vault_addr
+  token   = var.vault_token
 }
 
 #--------------------------------------

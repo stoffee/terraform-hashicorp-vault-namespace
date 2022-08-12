@@ -8,7 +8,7 @@ resource "vault_gcp_secret_backend" "gcp" {
 }
 
 resource "vault_gcp_secret_roleset" "gcp-api-viewer" {
-  count = var.gcp_secrets_enabled ? 1 : 0
+  count        = var.gcp_secrets_enabled ? 1 : 0
   backend      = vault_gcp_secret_backend.gcp[0].path
   roleset      = "gcp-api-viewer"
   secret_type  = "access_token"
@@ -25,7 +25,7 @@ resource "vault_gcp_secret_roleset" "gcp-api-viewer" {
 }
 
 resource "vault_gcp_secret_roleset" "gcp-api-owner" {
-  count = var.gcp_secrets_enabled ? 1 : 0
+  count        = var.gcp_secrets_enabled ? 1 : 0
   backend      = vault_gcp_secret_backend.gcp[0].path
   roleset      = "gcp-api-owner"
   secret_type  = "access_token"

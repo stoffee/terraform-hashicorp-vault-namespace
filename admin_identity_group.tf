@@ -2,7 +2,7 @@
 resource "vault_identity_group" "vault_admin" {
   name     = "VAULT_ADMIN"
   type     = "external"
-  policies = ["default","super-user-pol"]
+  policies = ["default", "super-user-pol"]
 }
 
 ##group alias for ldap
