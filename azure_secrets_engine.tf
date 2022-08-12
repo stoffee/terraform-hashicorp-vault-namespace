@@ -7,6 +7,7 @@ resource "vault_azure_secret_backend" "azure" {
   client_secret           = var.azure_secret_engine_client_secret
   client_id               = var.azure_secret_engine_client_id
   path                    = var.azure_secret_engine_path
+  namespace               = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]
@@ -19,5 +20,6 @@ resource "vault_azure_secret_backend_role" "azure-secret-read" {
   ttl                   = 300
   max_ttl               = 600
   application_object_id = var.azure_secrets_role_application_object_id
+  namespace             = vault_namespace.new.path
 }
 

@@ -1,6 +1,7 @@
 resource "vault_auth_backend" "azure" {
-  count = var.azure_auth_enabled ? 1 : 0
-  type  = "azure"
+  count     = var.azure_auth_enabled ? 1 : 0
+  namespace = vault_namespace.new.path
+  type      = "azure"
   depends_on = [
     vault_namespace.new,
   ]
@@ -13,6 +14,7 @@ resource "vault_azure_auth_backend_config" "main" {
   client_id     = var.azure_auth_engine_client_id
   client_secret = var.azure_auth_engine_client_secret
   resource      = var.azure_auth_engine_resource
+  namespace     = vault_namespace.new.path
 }
 
 resource "vault_azure_auth_backend_role" "azure-aad-creds" {
@@ -24,6 +26,7 @@ resource "vault_azure_auth_backend_role" "azure-aad-creds" {
   token_ttl              = 60
   token_max_ttl          = 120
   token_policies         = ["default", "kv-rl"]
+  namespace              = vault_namespace.new.path
 }
 
 #resource "vault_azure_auth_backend_role" "testRole" {

@@ -2,9 +2,10 @@
 # AWS Auth Engine Backend
 #
 resource "vault_auth_backend" "aws" {
-  count = var.aws_auth_enabled ? 1 : 0
-  type  = "aws"
-  path  = "aws"
+  count     = var.aws_auth_enabled ? 1 : 0
+  type      = "aws"
+  path      = "aws"
+  namespace = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]
@@ -14,6 +15,7 @@ resource "vault_aws_auth_backend_client" "main" {
   backend    = vault_auth_backend.aws[0].path
   access_key = var.aws_auth_engine_access_key
   secret_key = var.aws_auth_engine_secret_key
+  namespace  = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]
@@ -28,6 +30,7 @@ resource "vault_aws_auth_backend_role" "aws-iam-creds" {
   token_ttl                = 60
   token_max_ttl            = 120
   token_policies           = ["default", "kv-rl"]
+  namespace                = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]

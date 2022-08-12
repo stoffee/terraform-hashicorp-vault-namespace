@@ -5,6 +5,7 @@
 *.json
 *.exe
 *.ppk
+*.svg
 
 # OS X files
 .history
