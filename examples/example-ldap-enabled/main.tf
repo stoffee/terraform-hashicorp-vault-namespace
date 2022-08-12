@@ -1,5 +1,6 @@
 module "vault-namespace" {
-  source = "git@github.com:stoffee/terraform-hashicorp-vault-namespace.git"
+  #source = "git@github.com:stoffee/terraform-hashicorp-vault-namespace.git"
+  source = "../../"
 
   vault_addr  = var.vault_addr
   namespace   = var.namespace

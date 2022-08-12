@@ -221,7 +221,3 @@ variable "ad_secret_engine_service_account_name" {
   description = "Service account name for AD Secrets Engine https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/ad_secret_role#service_account_name"
   default     = "bob"
 }
-variable "vault_identity_canonical_id" {
-  description = "Alias ID of the group"
-  default     = "df634c70-56fb-14b4-c75b-e4cbbfa96dad"
-}
