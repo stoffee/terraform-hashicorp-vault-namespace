@@ -1,5 +1,5 @@
 module "vault-namespace" {
-  source = "../../"
+  source = "https://github.com/stoffee/terraform-hashicorp-vault-namespace"
 
   vault_addr  = var.vault_addr
   namespace   = var.namespace
