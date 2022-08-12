@@ -28,7 +28,8 @@ EOT
 }
 
 resource "vault_policy" "super-user-pol" {
-  name = "super-user-pol"
+  name      = "super-user-pol"
+  namespace = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]
@@ -40,7 +41,8 @@ EOT
 }
 
 resource "vault_policy" "azure_cloud_admin" {
-  name = "azure_cloud_admin"
+  name      = "azure_cloud_admin"
+  namespace = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]
@@ -52,7 +54,8 @@ EOT
 }
 
 resource "vault_policy" "kv-ro" {
-  name = "kv-ro"
+  name      = "kv-ro"
+  namespace = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]
@@ -64,7 +67,8 @@ EOT
 }
 
 resource "vault_policy" "adfs-kv-full" {
-  name = "adfs-kv-full"
+  name      = "adfs-kv-full"
+  namespace = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]
@@ -76,7 +80,8 @@ EOT
 }
 
 resource "vault_policy" "approle-access" {
-  name = "approle-access"
+  name      = "approle-access"
+  namespace = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]
@@ -99,7 +104,8 @@ EOT
 }
 
 resource "vault_policy" "kv-full" {
-  name = "kv-full"
+  name      = "kv-full"
+  namespace = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]
@@ -112,7 +118,8 @@ EOT
 
 
 resource "vault_policy" "kv-rl" {
-  name = "kv-rl"
+  name      = "kv-rl"
+  namespace = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]
@@ -124,12 +131,13 @@ EOT
 }
 
 resource "vault_policy" "kv-testing" {
-  name = "kv-testing"
+  name      = "kv-testing"
+  namespace = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]
   policy = <<EOT
-path "kv/+/mu/it/iam/adfs/*" {
+path "kv/*" {
   capabilities = ["create", "read", "update", "delete", "patch"]
 }
 

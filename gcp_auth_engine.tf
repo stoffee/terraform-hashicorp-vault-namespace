@@ -1,8 +1,9 @@
 
 resource "vault_auth_backend" "gcp" {
-  count = var.gcp_auth_enabled ? 1 : 0
-  path  = "gcp"
-  type  = "gcp"
+  count     = var.gcp_auth_enabled ? 1 : 0
+  path      = "gcp"
+  type      = "gcp"
+  namespace = vault_namespace.new.path
   depends_on = [
     vault_namespace.new,
   ]
@@ -15,4 +16,5 @@ resource "vault_gcp_auth_backend_role" "gcp-iam-auth" {
   token_policies         = ["kv-rl"]
   role                   = var.gcp_auth_engine_roles
   type                   = "iam"
+  namespace              = vault_namespace.new.path
 }

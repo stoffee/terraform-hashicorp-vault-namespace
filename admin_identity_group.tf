@@ -1,8 +1,9 @@
 #group name
 resource "vault_identity_group" "vault_admin" {
-  name     = "VAULT_ADMIN"
-  type     = "external"
-  policies = ["default", "super-user-pol"]
+  name      = "VAULT_ADMIN"
+  type      = "external"
+  policies  = ["default", "super-user-pol"]
+  namespace = vault_namespace.new.path
 }
 
 ##group alias for ldap

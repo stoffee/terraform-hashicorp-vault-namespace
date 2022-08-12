@@ -6,6 +6,7 @@ resource "vault_ad_secret_backend" "config" {
   url          = var.ad_secret_engine_ldap_url
   insecure_tls = var.ad_secret_engine_insecure_tls
   userdn       = var.ad_secret_engine_userdn
+  namespace    = vault_namespace.new.path
 }
 
 resource "vault_ad_secret_role" "role" {
@@ -14,4 +15,5 @@ resource "vault_ad_secret_role" "role" {
   role                 = var.ad_secret_engine_role
   service_account_name = var.ad_secret_engine_service_account_name
   ttl                  = 60
+  namespace            = vault_namespace.new.path
 }
