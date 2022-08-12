@@ -30,16 +30,16 @@ module "vault-namespace" {
   # LDAP Auth Engine
   #
   ldap_auth_enabled         = true
-  ldap_auth_engine_ldap_url = var.ldap_auth_engine_ldap_url
-  ldap_auth_engine_bindpass = var.ldap_auth_engine_bindpass
-  ldap_auth_userdn          = var.ldap_auth_userdn
-  ldap_auth_userattr        = var.ldap_auth_userattr
-  ldap_auth_groupattr       = var.ldap_auth_groupattr
-  ldap_auth_groupdn         = var.ldap_auth_groupdn
-  ldap_auth_groupfilter     = var.ldap_auth_groupfilter
-  ldap_auth_binddn          = var.ldap_auth_binddn
-  ldap_auth_insecure_tls    = var.ldap_auth_insecure_tls
-  ldap_auth_starttls        = var.ldap_auth_starttls
+  ldap_auth_engine_ldap_url = "ldap://ldap.mydomain.com"
+  ldap_auth_engine_bindpass = "MyLDAPBindUserPassword"
+  ldap_auth_userdn          = "DC=na,DC=mydomain,DC=com"
+  ldap_auth_userattr        = "cn"
+  ldap_auth_groupattr       = "cn"
+  ldap_auth_groupdn         = "OU=MyGroups,OU=MyOrg,OU=Exchange,DC=na,DC=MyDomain,DC=com"
+  ldap_auth_groupfilter     = "(&(objectClass=group)(member:1.2.840.113556.1.4.1941:={{.UserDN}}))"
+  ldap_auth_binddn          = "cn=vault_admin_user,ou=Users,dc=mydomain,dc=com"
+  ldap_auth_insecure_tls    = false
+  ldap_auth_starttls        =true
 
   #
   # AppRole Auth
