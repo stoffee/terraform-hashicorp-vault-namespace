@@ -16,8 +16,8 @@ variable "userpass_auth_enabled" {
   default     = false
 }
 variable "kv2_enabled" {
-  description = "Desired name of the NAMESPACE to create and configure"
-  default = true
+  description = "Enabled or disable KV2"
+  default = false
 }
  variable "aws_auth_enabled" {
   description = "Enables AWS auth"

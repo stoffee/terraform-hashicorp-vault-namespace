@@ -1,0 +1,25 @@
+namespace                                = "MyNewNamespace"
+vault_addr                               = "https://vault.mydomain.com:8200"
+vault_token                              = "vaulttoken.ijasdiawoskjnasdokijbnasd"
+/*
+aws_secret_engine_access_key             = "AWSAccessKey"
+aws_secret_engine_secret_key             = "AWSSecretKey"
+aws_auth_engine_access_key               = "AWSAccessKey"
+aws_auth_engine_secret_key               = "AWSSecretKey"
+azure_auth_engine_tenant_id              = "AzureTenantID"
+azure_auth_bound_resource_groups         = ["AzureRG"]
+azure_auth_engine_client_id              = "AzureClientId"
+azure_auth_engine_client_secret          = "AzureSecret"
+azure_auth_bound_subscription_ids        = ["AzureSubID"]
+azure_auth_engine_resource               = "AzureResource"
+azure_secret_engine_client_id            = "AzureClientId"
+azure_secret_engine_client_secret        = "AzureSecret"
+azure_secrets_engine_subscription_id     = "AzureSubID"
+azure_secrets_engine_tenant_id           = "AzureTenantID"
+azure_secret_engine_path                 = "azuresecrets"
+azure_secrets_role_application_object_id = "AzureRoleID"
+gcp_auth_engine_project_id               = "MyGCPProjID"
+gcp_auth_engine_bound_service_accounts   = ["MYGCPServiceAccounts"]
+gcp_auth_engine_roles                    = "MyGCPRole1"
+*/
+ldap_auth_engine_bindpass                = "MyLDAPBindUserPassword"
