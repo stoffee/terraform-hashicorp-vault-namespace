@@ -93,7 +93,7 @@ variable "ldap_auth_engine_ldap_url" {
 }
 variable "ldap_auth_engine_bindpass" {
   description = "LDAP bindpass https://www.vaultproject.io/docs/auth/ldap#bindpass"
-  sensitive=true
+  sensitive   = true
 }
 variable "ldap_auth_userdn" {
   description = "LDAP binddn https://www.vaultproject.io/docs/auth/ldap#binddn"

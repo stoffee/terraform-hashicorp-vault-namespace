@@ -1,10 +1,10 @@
 resource "vault_identity_group" "group" {
-  name         = "MyTestGroup"
-  type         = "external"
-  policies     = ["default"]
-#  canonical_id = var.vault_identity_canonical_id
-  namespace    = vault_namespace.new.path
-  depends_on   = [vault_namespace.new, ]
+  name     = "MyTestGroup"
+  type     = "external"
+  policies = ["default"]
+  #  canonical_id = var.vault_identity_canonical_id
+  namespace  = vault_namespace.new.path
+  depends_on = [vault_namespace.new, ]
 }
 
 resource "vault_identity_group_alias" "group-alias" {
