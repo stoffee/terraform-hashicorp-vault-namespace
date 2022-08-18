@@ -21,3 +21,18 @@ resource "vault_generic_endpoint" "userpass_user1" {
 }
 EOT
 }
+
+resource "vault_generic_endpoint" "userpass_admin" {
+  count                = var.userpass_auth_enabled ? 1 : 0
+  depends_on           = [vault_auth_backend.userpass[0]]
+  path                 = "auth/userpass/users/${var.userpass_admin}"
+  namespace            = vault_namespace.new.path
+  ignore_absent_fields = true
+
+  data_json = <<EOT
+{
+  "policies": ["super-user-pol"],
+  "password": ${var.userpass_admin_password}
+}
+EOT
+}

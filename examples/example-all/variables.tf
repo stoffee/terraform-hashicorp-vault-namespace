@@ -16,6 +16,15 @@ variable "userpass_user1_password" {
   default     = "ChangeMe"
   sensitive   = true
 }
+variable "userpass_admin" {
+  description = "Desired name of namespace admin user to add to Vault UserPass Auth"
+  default     = "vaultnamespaceadmin"
+}
+variable "userpass_admin_password" {
+  description = "Desired password of namespace admin user to add to Vault UserPass Auth"
+  default     = null
+  sensitive   = true
+}
 variable "aws_secret_engine_access_key" {
   description = "AWS Secret Engine Access Key"
 }

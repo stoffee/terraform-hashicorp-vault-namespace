@@ -23,6 +23,15 @@ variable "userpass_user1_password" {
   default     = "ChangeMe"
   sensitive   = true
 }
+variable "userpass_admin" {
+  description = "Desired name of namespace admin user to add to Vault UserPass Auth"
+  default     = "vaultnamespaceadmin"
+}
+variable "userpass_admin_password" {
+  description = "Desired password of namespace admin user to add to Vault UserPass Auth"
+  default     = null
+  sensitive   = true
+}
 variable "kv2_enabled" {
   description = "Enabled or disable KV2"
   type        = bool
