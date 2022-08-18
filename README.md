@@ -50,6 +50,10 @@ module "vault-namespace" {
   # UserPass Auth
   #
   userpass_auth_enabled = false
+  userpass_user1          = "vaultuser"
+  userpass_user1_password = "ChangeMe"
+  userpass_admin          = "VaultNamespaceAdmin
+  userpass_admin_password = "ChangeMeAlso"
 
   #
   # AppRole Auth

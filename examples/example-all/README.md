@@ -28,6 +28,10 @@ module "vault-namespace" {
   # UserPass Auth
   #
   userpass_auth_enabled = true
+  userpass_user1          = var.userpass_user1
+  userpass_user1_password = var.userpass_user1_password
+  userpass_admin          = var.userpass_admin
+  userpass_admin_password = var.userpass_admin_password
 
   #
   # AppRole Auth
