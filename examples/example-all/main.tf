@@ -11,6 +11,11 @@ module "vault-namespace" {
   kv2_enabled = true
 
   #
+  # Transit Engine
+  #
+  transit_engine_enabled = true
+
+  #
   # AppRole Auth
   #
   userpass_auth_enabled = true

@@ -1,4 +1,3 @@
-
 variable "vault_addr" {
   description = "Address of vault server to set at VAULT_ADDR"
   type        = string
@@ -235,4 +234,29 @@ variable "ad_secret_engine_role" {
 variable "ad_secret_engine_service_account_name" {
   description = "Service account name for AD Secrets Engine https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/ad_secret_role#service_account_name"
   default     = "bob"
+}
+variable "vault_transit_path" {
+  description = "Mount path for transit engine"
+  default     = "transit"
+}
+variable "vault_transit_description" {
+  description = "Description for transit engine"
+  default     = "Transit Engine for Prod"
+}
+variable "vault_transit_default_lease" {
+  description = "Default lease time for transit engine"
+  default     = "3600"
+}
+variable "vault_transit_max_lease" {
+  description = "Max lease time for transit engine"
+  default     = "86400"
+}
+variable "vault_transit_key_name" {
+  description = "Key name to create for transit engine"
+  default     = "MyEncryptionKey"
+}
+variable "transit_engine_enabled" {
+  description = "Enables Transit Engine"
+  type        = bool
+  default     = false
 }
