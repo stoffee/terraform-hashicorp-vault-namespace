@@ -45,6 +45,24 @@ path "azure*" {
 }
 EOT
 }
+resource "vault_policy" "aws_cloud_admin" {
+  name      = "aws_cloud_admin"
+  namespace = vault_namespace.new.path
+  policy    = <<EOT
+path "aws*" {
+  capabilities = ["create", "read", "update", "list", "patch"]
+}
+EOT
+}
+resource "vault_policy" "gcp_cloud_admin" {
+  name      = "gcp_cloud_admin"
+  namespace = vault_namespace.new.path
+  policy    = <<EOT
+path "gcp*" {
+  capabilities = ["create", "read", "update", "list", "patch"]
+}
+EOT
+}
 
 resource "vault_policy" "kv-ro" {
   name      = "kv-ro"

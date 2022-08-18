@@ -1,4 +1,5 @@
 resource "vault_ldap_auth_backend" "ldap" {
+  count        = var.ldap_auth_enabled ? 1 : 0
   path         = "ldap"
   namespace    = vault_namespace.new.path
   url          = var.ldap_auth_engine_ldap_url

@@ -6,10 +6,11 @@ resource "vault_identity_group" "vault_admin" {
   namespace = vault_namespace.new.path
 }
 
-##group alias for ldap
-##resource "vault_identity_group_alias" "vault_admin_alias" {
-##  name     = "VAULT_ADMIN"
-##  mount_accessor = vault_ldap_auth_backend.ldap.accessor
-##  canonical_id   = vault_identity_group.vault_admin.id
-##}
+#group alias for ldap
+resource "vault_identity_group_alias" "vault_admin_alias" {
+  count          = var.ldap_auth_enabled ? 1 : 0
+  name           = "VAULT_ADMIN"
+  mount_accessor = vault_ldap_auth_backend.ldap[0].accessor
+  canonical_id   = vault_identity_group.vault_admin.id
+}
 
