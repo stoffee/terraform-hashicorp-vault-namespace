@@ -7,6 +7,15 @@ variable "vault_token" {
 variable "vault_addr" {
   description = "Vault URL"
 }
+variable "userpass_user1" {
+  description = "Desired name of a user to add to Vault UserPass Auth"
+  default     = "vaultuser"
+}
+variable "userpass_user1_password" {
+  description = "Desired password of a user to add to Vault UserPass Auth"
+  default     = "ChangeMe"
+  sensitive   = true
+}
 variable "aws_secret_engine_access_key" {
   description = "AWS Secret Engine Access Key"
 }

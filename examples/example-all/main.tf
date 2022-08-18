@@ -1,5 +1,6 @@
 module "vault-namespace" {
   source = "git@github.com:stoffee/terraform-hashicorp-vault-namespace.git"
+  #source = "../../"
 
   vault_addr  = var.vault_addr
   namespace   = var.namespace
@@ -18,7 +19,9 @@ module "vault-namespace" {
   #
   # UserPass Auth
   #
-  userpass_auth_enabled = true
+  userpass_auth_enabled   = true
+  userpass_user1          = var.userpass_user1
+  userpass_user1_password = var.userpass_user1_password
 
   #
   # AppRole Auth

@@ -14,8 +14,18 @@ variable "userpass_auth_enabled" {
   type        = bool
   default     = false
 }
+variable "userpass_user1" {
+  description = "Desired name of a user to add to Vault UserPass Auth"
+  default     = "vaultuser"
+}
+variable "userpass_user1_password" {
+  description = "Desired password of a user to add to Vault UserPass Auth"
+  default     = "ChangeMe"
+  sensitive   = true
+}
 variable "kv2_enabled" {
   description = "Enabled or disable KV2"
+  type        = bool
   default     = false
 }
 variable "ldap_auth_enabled" {

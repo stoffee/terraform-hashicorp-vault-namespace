@@ -1,10 +1,9 @@
 # # Create an eaas-client policy in the new namespace
-resource "vault_policy" "eaas-client_policy" {
+resource "vault_policy" "kv_transit_client_policy" {
   namespace  = vault_namespace.new.path
   depends_on = [vault_namespace.new]
-  name       = "eaas-client"
-  #policy = file("policies/eaas-client-policy.hcl")
-  policy = <<EOT
+  name       = "kv-transit-client"
+  policy     = <<EOT
   # Permits CRUD operation on kv-v2
 path "kv-v2/data/*" {
   capabilities = ["create", "read", "update", "delete", "list"]
@@ -30,10 +29,7 @@ EOT
 resource "vault_policy" "super-user-pol" {
   name      = "super-user-pol"
   namespace = vault_namespace.new.path
-  depends_on = [
-    vault_namespace.new,
-  ]
-  policy = <<EOT
+  policy    = <<EOT
 path "*" {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
@@ -43,10 +39,7 @@ EOT
 resource "vault_policy" "azure_cloud_admin" {
   name      = "azure_cloud_admin"
   namespace = vault_namespace.new.path
-  depends_on = [
-    vault_namespace.new,
-  ]
-  policy = <<EOT
+  policy    = <<EOT
 path "azure*" {
   capabilities = ["create", "read", "update", "list", "patch"]
 }
@@ -56,10 +49,7 @@ EOT
 resource "vault_policy" "kv-ro" {
   name      = "kv-ro"
   namespace = vault_namespace.new.path
-  depends_on = [
-    vault_namespace.new,
-  ]
-  policy = <<EOT
+  policy    = <<EOT
 path "kv*" {
   capabilities = ["read", "list"]
 }
@@ -69,10 +59,7 @@ EOT
 resource "vault_policy" "adfs-kv-full" {
   name      = "adfs-kv-full"
   namespace = vault_namespace.new.path
-  depends_on = [
-    vault_namespace.new,
-  ]
-  policy = <<EOT
+  policy    = <<EOT
 path "kv*" {
   capabilities = ["create", "read", "update", "delete", "list", "patch"]
 }
@@ -82,10 +69,7 @@ EOT
 resource "vault_policy" "approle-access" {
   name      = "approle-access"
   namespace = vault_namespace.new.path
-  depends_on = [
-    vault_namespace.new,
-  ]
-  policy = <<EOT
+  policy    = <<EOT
 # Mount the AppRole auth method
 #path "sys/auth/approle" {
  # capabilities = [ "create", "read", "update", "delete", "sudo" ]
@@ -106,10 +90,7 @@ EOT
 resource "vault_policy" "kv-full" {
   name      = "kv-full"
   namespace = vault_namespace.new.path
-  depends_on = [
-    vault_namespace.new,
-  ]
-  policy = <<EOT
+  policy    = <<EOT
 path "kv*" {
   capabilities = ["create", "read", "update", "delete", "list", "patch"]
 }
@@ -120,10 +101,7 @@ EOT
 resource "vault_policy" "kv-rl" {
   name      = "kv-rl"
   namespace = vault_namespace.new.path
-  depends_on = [
-    vault_namespace.new,
-  ]
-  policy = <<EOT
+  policy    = <<EOT
 path "kv*" {
   capabilities = ["read", "list"]
 }
@@ -133,10 +111,7 @@ EOT
 resource "vault_policy" "kv-testing" {
   name      = "kv-testing"
   namespace = vault_namespace.new.path
-  depends_on = [
-    vault_namespace.new,
-  ]
-  policy = <<EOT
+  policy    = <<EOT
 path "kv/*" {
   capabilities = ["create", "read", "update", "delete", "patch"]
 }
