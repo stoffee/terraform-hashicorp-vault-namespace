@@ -25,6 +25,7 @@ module "vault-namespace" {
   #
   kv2_enabled = true
 
+
   #
   # LDAP Auth Engine
   #
@@ -41,7 +42,12 @@ module "vault-namespace" {
   ldap_auth_starttls        =true
 
   #
-  # AppRole Auth
+  # Transit Engine
+  #
+  transit_engine_enabled = false
+
+  #
+  # UserPass Auth
   #
   userpass_auth_enabled = false
 

@@ -20,6 +20,10 @@ module "vault-namespace" {
   #
   kv2_enabled = true
 
+  #
+  # Transit Engine
+  #
+  transit_engine_enabled = false
 
   #
   # LDAP Auth Engine

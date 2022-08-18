@@ -25,7 +25,7 @@ module "vault-namespace" {
   transit_engine_enabled = true
 
   #
-  # AppRole Auth
+  # UserPass Auth
   #
   userpass_auth_enabled = true
 
