@@ -31,7 +31,7 @@ variable "ldap_auth_engine_ldap_url" {
 variable "ldap_auth_engine_bindpass" {
   description = "LDAP bindpass https://www.vaultproject.io/docs/auth/ldap#bindpass"
   sensitive   = true
-  default = null
+  default     = null
 }
 variable "ldap_auth_userdn" {
   description = "LDAP binddn https://www.vaultproject.io/docs/auth/ldap#url"
@@ -89,13 +89,13 @@ variable "aws_secret_enabled" {
 
 variable "aws_secret_engine_access_key" {
   description = "AWS Access key for AWS Secret Engine"
-  default = null
+  default     = null
 }
 
 variable "aws_secret_engine_secret_key" {
   description = "AWS Secret for AWS Secret Engine"
-  default = null
-  sensitive = true
+  default     = null
+  sensitive   = true
 }
 
 variable "approle_auth_enabled" {
@@ -111,28 +111,28 @@ variable "azure_auth_enabled" {
 }
 variable "azure_auth_engine_tenant_id" {
   description = "Azure Tenant ID"
-  default = null
+  default     = null
 }
 variable "azure_auth_engine_client_id" {
   description = "Azure Client ID for Azure Auth Engine"
-  default = null
+  default     = null
 }
 variable "azure_auth_engine_client_secret" {
   description = "Azure Secret for Azure Auth Engine"
-  default = null
-  sensitive = true
+  default     = null
+  sensitive   = true
 }
 variable "azure_auth_bound_resource_groups" {
   description = "Azure Resource Groups for Azure Auth Roles"
-  default = null
+  default     = null
 }
 variable "azure_auth_bound_subscription_ids" {
   description = "Azure Resource Groups for Azure Secret Roles"
-  default = null
+  default     = null
 }
 variable "azure_auth_engine_resource" {
   description = "Azure Auth, This is always set to the Client ID"
-  default = null
+  default     = null
 }
 variable "azure_secrets_enabled" {
   description = "Enables  Azure Secrets Engine"
@@ -141,20 +141,20 @@ variable "azure_secrets_enabled" {
 }
 variable "azure_secret_engine_client_id" {
   description = "Azure Client ID for Azure Secret Engine"
-  default = null
+  default     = null
 }
 variable "azure_secret_engine_client_secret" {
   description = "Azure Secret for Azure Secret Engine"
-  default = null
-  sensitive = true
+  default     = null
+  sensitive   = true
 }
 variable "azure_secrets_engine_subscription_id" {
   description = "Azure Subscription ID for Azure Secret Engine"
-  default = null
+  default     = null
 }
 variable "azure_secrets_engine_tenant_id" {
   description = "Azure Tenant ID for Azure Secret Engine"
-  default = null
+  default     = null
 }
 variable "azure_secret_engine_path" {
   description = "Vault path to be used for Azure Secrets Engine"
@@ -162,7 +162,7 @@ variable "azure_secret_engine_path" {
 }
 variable "azure_secrets_role_application_object_id" {
   description = "Azure Existing Service Principale to be used for the Roles"
-  default = null
+  default     = null
 }
 #variable "azure_oidc_engine_client_id" {
 # description = "Azure Client ID for Azure OIDC Engine"
@@ -177,15 +177,15 @@ variable "gcp_auth_enabled" {
 }
 variable "gcp_auth_engine_project_id" {
   description = "GCP Auth Engine Project ID"
-  default = null
+  default     = null
 }
 variable "gcp_auth_engine_bound_service_accounts" {
   description = "GCP Auth Engine Bound Service Accounts https://www.vaultproject.io/docs/auth/gcp#configuration"
-  default = null
+  default     = null
 }
 variable "gcp_auth_engine_roles" {
   description = "GCP Auth Engine Roles"
-  default = null
+  default     = null
 }
 
 variable "gcp_secrets_enabled" {

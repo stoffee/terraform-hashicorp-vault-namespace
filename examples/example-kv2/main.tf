@@ -13,7 +13,7 @@ module "vault-namespace" {
   #
   # LDAP Auth Engine
   #
-  ldap_auth_enabled         = false
+  ldap_auth_enabled = false
 
   #
   # AppRole Auth
@@ -28,30 +28,30 @@ module "vault-namespace" {
   #
   # AWS Auth
   #
-  aws_auth_enabled           = false
+  aws_auth_enabled = false
 
   #
   # AWS Secrets Engine
   #
-  aws_secret_enabled           = false
+  aws_secret_enabled = false
 
   #
   # Azure Auth
   #
-  azure_auth_enabled                = false
+  azure_auth_enabled = false
 
   #
   # Azure Secrets Engine
   #
-  azure_secrets_enabled                    = false
+  azure_secrets_enabled = false
 
   #
   # GCP Auth Engine
   #
-  gcp_auth_enabled                       = false
+  gcp_auth_enabled = false
 
   #
   # GCP Secrets Engine
   #
-  gcp_secrets_enabled        = false
+  gcp_secrets_enabled = false
 }
