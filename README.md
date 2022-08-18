@@ -1,7 +1,6 @@
----
 # Hashicorp Vault Namespace Module
 
-This repo contains a module for deploying a new [Vault](https://www.vault.io/) namespace on an existing Vault cluster using [Terraform](https://www.terraform.io/).
+This repo contains a module for deploying a new [Vault](https://www.vault.io/) namespace on an existing Vault cluster using [Terraform](https://www.terraform.io/). [Vault Namespaces] (https://www.vaultproject.io/docs/enterprise/namespaces) is a Enterprise Vault feature.
 
 ---
 # Hashicorp Vault Namespace Module Examples
