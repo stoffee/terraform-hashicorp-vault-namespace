@@ -279,3 +279,29 @@ variable "transit_engine_enabled" {
   type        = bool
   default     = false
 }
+variable "ssh_otp_engine_enabled" {
+  description = "Enables SSHD OTP Engine"
+  type        = bool
+  default     = false
+}
+variable "ssh_default_user" {
+  description = "Username for SSH user"
+  default     = "Linux username"
+}
+variable "ssh_cidr_list" {
+  description = "Username for SSH user"
+  default     = "0.0.0.0/0"
+}
+variable "k8s_auth_enabled" {
+  description = "Enables kubernets Auth"
+  type        = bool
+  default     = false
+}
+variable "kubernetes_ca_cert" {
+  description = "CA Cert from Kubernetes"
+  default     = "-----BEGIN CERTIFICATE-----\nexample\n-----END CERTIFICATE-----"
+}
+variable "k8s_token_reviewer_jwt" {
+  description = "JWT"
+  default     = "ZXhhbXBsZQo="
+}

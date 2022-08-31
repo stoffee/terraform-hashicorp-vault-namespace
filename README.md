@@ -91,5 +91,14 @@ module "vault-namespace" {
   #
   gcp_secrets_enabled  = false
 
+  #
+  # SSH OTP
+  #
+  ssh_otp_enabled = false
+
+  #
+  # Kubernetes Auth
+  #
+  k8s_auth_engine = false
 }
 ```
