@@ -10,7 +10,7 @@ resource "vault_mount" "transit" {
 }
 
 resource "vault_transit_secret_backend_key" "key" {
-  backend          = vault_mount.transit[0].path
+  backend          = var.vault_transit_path
   name             = var.vault_transit_key_name
   namespace        = vault_namespace.new.path
   deletion_allowed = true
