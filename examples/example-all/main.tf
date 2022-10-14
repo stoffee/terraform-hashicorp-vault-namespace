@@ -1,5 +1,7 @@
 module "vault-namespace" {
-  source = "git@github.com:stoffee/terraform-hashicorp-vault-namespace.git"
+  source  = "stoffee/vault-namespace/hashicorp//examples/example-all"
+  version = ">= 0.1.7"
+  # for local module usage
   #source = "../../"
 
   vault_addr  = var.vault_addr
@@ -95,18 +97,18 @@ module "vault-namespace" {
   ldap_auth_insecure_tls    = var.ldap_auth_insecure_tls
   ldap_auth_starttls        = var.ldap_auth_starttls
 
-  
+
   #
   # SSH OTP
   #
-  ssh_otp_enabled     = true
-  ssh_default_user    = var.ssh_defautl_user
-  ssh_cidr_list       = var.ssh_cidr_list
+  ssh_otp_engine_enabled = true
+  ssh_default_user       = var.ssh_default_user
+  ssh_cidr_list          = var.ssh_cidr_list
 
   #
   # Kubernetes Auth
   #
-  k8s_auth_engine = true
-  kubernetes_ca_cert = var.kubernetes_ca_cert
+  k8s_auth_enabled       = true
+  kubernetes_ca_cert     = var.kubernetes_ca_cert
   k8s_token_reviewer_jwt = var.k8s_token_reviewer_jwt
 }

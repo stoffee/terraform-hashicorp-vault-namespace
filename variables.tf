@@ -254,6 +254,10 @@ variable "ad_secret_engine_service_account_name" {
   description = "Service account name for AD Secrets Engine https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/ad_secret_role#service_account_name"
   default     = "bob"
 }
+variable "ad_secret_engine_library_service_account_names" {
+  description = "Service account names to be used in account vending machine for AD Secrets Engine https://www.vaultproject.io/docs/secrets/ad#service-account-check-out"
+  default     = "[Bob, Mary]"
+}
 variable "vault_transit_path" {
   description = "Mount path for transit engine"
   default     = "transit"

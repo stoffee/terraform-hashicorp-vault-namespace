@@ -8,7 +8,8 @@ This is an example deployment with all Secret and Auth Engines supported by this
 
 ```hcl
 module "vault-namespace" {
-  source = "git@github.com:stoffee/terraform-hashicorp-vault-namespace.git"
+  source  = "stoffee/vault-namespace/hashicorp//examples/example-all"
+  version = ">= 0.1.8"
 
   vault_addr  = var.vault_addr
   namespace   = var.namespace

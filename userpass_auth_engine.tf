@@ -14,12 +14,12 @@ resource "vault_generic_endpoint" "userpass_user1" {
   namespace            = vault_namespace.new.path
   ignore_absent_fields = true
 
-  data_json = <<EOT
+  data_json = <<EOK
 {
-  "policies": ["kv-transit-client"],
-  "password": ${var.userpass_user1_password}
+  "policies": ["kv-transit-client","kv-full"],
+  "password": "${var.userpass_user1_password}"
 }
-EOT
+EOK
 }
 
 resource "vault_generic_endpoint" "userpass_admin" {
@@ -32,7 +32,7 @@ resource "vault_generic_endpoint" "userpass_admin" {
   data_json = <<EOT
 {
   "policies": ["super-user-pol"],
-  "password": ${var.userpass_admin_password}
+  "password": "${var.userpass_admin_password}"
 }
 EOT
 }

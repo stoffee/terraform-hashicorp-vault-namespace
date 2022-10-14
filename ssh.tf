@@ -6,6 +6,7 @@ resource "vault_mount" "ssh_otp" {
 }
 
 resource "vault_ssh_secret_backend_role" "foo" {
+  count          = var.ssh_otp_engine_enabled ? 1 : 0
     name                    = "my-role"
 #    backend                 = vault_mount.ssh_otp[0].path
     backend                 = "ssh"
@@ -14,6 +15,7 @@ resource "vault_ssh_secret_backend_role" "foo" {
 }
 
 resource "vault_ssh_secret_backend_role" "bar" {
+  count          = var.ssh_otp_engine_enabled ? 1 : 0
     name          = "otp-role"
     #backend       = vault_mount.ssh_otp[0].path
     backend       = "ssh"

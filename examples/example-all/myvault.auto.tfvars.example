@@ -21,3 +21,5 @@ gcp_auth_engine_project_id               = "MyGCPProjID"
 gcp_auth_engine_bound_service_accounts   = ["MYGCPServiceAccounts"]
 gcp_auth_engine_roles                    = "MyGCPRole1"
 ldap_auth_engine_bindpass                = "MyLDAPBindUserPassword"
+userpass_admin_password                  = "MyUserPassAdminPassword"
+userpass_user1_password                  = "MyUserPassUser1Password"
