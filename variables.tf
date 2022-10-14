@@ -9,6 +9,15 @@ variable "vault_token" {
 variable "namespace" {
   description = "Desired name of the NAMESPACE to create and configure"
 }
+variable "vault_admin_policy_name" {
+  description = "Desired name of the admin policy"
+  default     = "super-user-pol"
+}
+variable "create_vault_admin_policy" {
+  description = "Create a admin policy in your new namespace?"
+  type        = bool
+  default     = false
+}
 variable "userpass_auth_enabled" {
   description = "User Password auth for Vault"
   type        = bool
