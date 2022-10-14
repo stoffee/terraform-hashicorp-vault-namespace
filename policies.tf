@@ -70,7 +70,7 @@ EOT
 }
 
 resource "vault_policy" "kv-ro" {
-  count      = var.kv2_enabled ? 1 : 0
+  count     = var.kv2_enabled ? 1 : 0
   name      = "kv-ro"
   namespace = vault_namespace.new.path
   policy    = <<EOT
@@ -81,7 +81,7 @@ EOT
 }
 
 resource "vault_policy" "adfs-kv-full" {
-  count      = var.kv2_enabled ? 1 : 0
+  count     = var.kv2_enabled ? 1 : 0
   name      = "adfs-kv-full"
   namespace = vault_namespace.new.path
   policy    = <<EOT
@@ -97,14 +97,14 @@ resource "vault_policy" "approle-access" {
   namespace = vault_namespace.new.path
   policy    = <<EOT
 # Mount the AppRole auth method
-#path "sys/auth/approle" {
- # capabilities = [ "create", "read", "update", "delete", "sudo" ]
-#}
+path "sys/auth/approle" {
+  capabilities = [ "create", "read", "update", "delete", "sudo" ]
+}
 
 # Configure the AppRole auth method
-#path "sys/auth/approle/*" {
- # capabilities = [ "create", "read", "update", "delete" ]
-#}
+path "sys/auth/approle/*" {
+  capabilities = [ "create", "read", "update", "delete" ]
+}
 
 # Create and manage roles
 path "auth/approle/*" {
@@ -114,7 +114,7 @@ EOT
 }
 
 resource "vault_policy" "kv-full" {
-  count      = var.kv2_enabled ? 1 : 0
+  count     = var.kv2_enabled ? 1 : 0
   name      = "kv-full"
   namespace = vault_namespace.new.path
   policy    = <<EOT
@@ -126,7 +126,7 @@ EOT
 
 
 resource "vault_policy" "kv-rl" {
-  count      = var.kv2_enabled ? 1 : 0
+  count     = var.kv2_enabled ? 1 : 0
   name      = "kv-rl"
   namespace = vault_namespace.new.path
   policy    = <<EOT
@@ -137,7 +137,7 @@ EOT
 }
 
 resource "vault_policy" "kv-testing" {
-  count      = var.kv2_enabled ? 1 : 0
+  count     = var.kv2_enabled ? 1 : 0
   name      = "kv-testing"
   namespace = vault_namespace.new.path
   policy    = <<EOT

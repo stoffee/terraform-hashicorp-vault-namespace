@@ -52,6 +52,7 @@ module "vault-namespace" {
   aws_secret_enabled           = true
   aws_secret_engine_access_key = var.aws_secret_engine_access_key
   aws_secret_engine_secret_key = var.aws_secret_engine_secret_key
+  aws_secret_full_access_iam_user_enabled = true
 
 
   #
