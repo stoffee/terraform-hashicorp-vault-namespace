@@ -23,6 +23,16 @@ variable "userpass_auth_enabled" {
   type        = bool
   default     = false
 }
+variable "create_userpass_user1" {
+  description = "Create a userpass user in your new namespace?"
+  type        = bool
+  default     = false
+}
+variable "create_userpass_adminuser" {
+  description = "Create a userpass Admin user in your new namespace?"
+  type        = bool
+  default     = false
+}
 variable "userpass_user1" {
   description = "Desired name of a user to add to Vault UserPass Auth"
   default     = "vaultuser"

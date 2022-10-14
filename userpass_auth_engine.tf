@@ -8,7 +8,7 @@ resource "vault_auth_backend" "userpass" {
 }
 
 resource "vault_generic_endpoint" "userpass_user1" {
-  count                = var.userpass_auth_enabled ? 1 : 0
+  count                = var.create_userpass_user1 ? 1 : 0
   depends_on           = [vault_auth_backend.userpass[0]]
   path                 = "auth/userpass/users/${var.userpass_user1}"
   namespace            = vault_namespace.new.path
@@ -23,7 +23,7 @@ EOK
 }
 
 resource "vault_generic_endpoint" "userpass_admin" {
-  count                = var.userpass_auth_enabled ? 1 : 0
+  count                = var.create_userpass_adminuser ? 1 : 0
   depends_on           = [vault_auth_backend.userpass[0]]
   path                 = "auth/userpass/users/${var.userpass_admin}"
   namespace            = vault_namespace.new.path
