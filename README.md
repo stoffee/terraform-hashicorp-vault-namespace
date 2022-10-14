@@ -14,7 +14,8 @@ Please check the [examples](https://github.com/stoffee/terraform-hashicorp-vault
 
 ```hcl
 module "vault-namespace" {
-  source = "git@github.com:stoffee/terraform-hashicorp-vault-namespace.git"
+  source  = "stoffee/vault-namespace/hashicorp//examples/example-all"
+  version = ">= 0.1.8"
 
   vault_addr  = "https://vault.mydomain.com:8200"
   namespace   = "MyCoolNewNamespace"
@@ -40,65 +41,5 @@ module "vault-namespace" {
   ldap_auth_binddn          = "cn=vault_admin_user,ou=Users,dc=mydomain,dc=com"
   ldap_auth_insecure_tls    = false
   ldap_auth_starttls        =true
-
-  #
-  # Transit Engine
-  #
-  transit_engine_enabled = false
-
-  #
-  # UserPass Auth
-  #
-  userpass_auth_enabled = false
-  userpass_user1          = "vaultuser"
-  userpass_user1_password = "ChangeMe"
-  userpass_admin          = "VaultNamespaceAdmin
-  userpass_admin_password = "ChangeMeAlso"
-
-  #
-  # AppRole Auth
-  #
-  approle_auth_enabled = false
-
-  #
-  # AWS Auth
-  #
-  aws_auth_enabled     = false
-
-  #
-  # AWS Secrets Engine
-  #
-  aws_secret_enabled   = false
-
-
-  #
-  # Azure Auth
-  #
-  azure_auth_enabled   = false
-
-  #
-  # Azure Secrets Engine
-  #
-  azure_secrets_enabled    = false
-
-  #
-  # GCP Auth Engine
-  #
-  gcp_auth_enabled     = false
-
-  #
-  # GCP Secrets Engine
-  #
-  gcp_secrets_enabled  = false
-
-  #
-  # SSH OTP
-  #
-  ssh_otp_enabled = false
-
-  #
-  # Kubernetes Auth
-  #
-  k8s_auth_engine = false
 }
 ```
