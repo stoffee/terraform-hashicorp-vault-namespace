@@ -10,7 +10,7 @@ resource "vault_aws_secret_backend" "aws" {
 }
 
 resource "vault_aws_secret_backend_role" "aws-iam-creds" {
-  count           = var.aws_secret_enabled ? 1 : 0
+  count           = var.aws_secret_full_access_iam_user_enabled ? 1 : 0
   backend         = vault_aws_secret_backend.aws[0].path
   name            = "aws-iam-creds"
   credential_type = "iam_user"

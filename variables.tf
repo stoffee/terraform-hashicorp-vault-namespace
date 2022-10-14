@@ -104,6 +104,11 @@ variable "aws_secret_enabled" {
   type        = bool
   default     = false
 }
+variable "aws_secret_full_access_iam_user_enabled" {
+  description = "Enables AWS secrets full access IAM user"
+  type        = bool
+  default     = false
+}
 
 variable "aws_secret_engine_access_key" {
   description = "AWS Access key for AWS Secret Engine"
