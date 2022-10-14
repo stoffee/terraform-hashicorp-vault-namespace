@@ -1,8 +1,8 @@
 module "vault-namespace" {
-  #source  = "stoffee/vault-namespace/hashicorp//examples/example-all"
-  #version = "0.1.7"
+  source  = "stoffee/vault-namespace/hashicorp//examples/example-all"
+  version = ">= 0.1.9"
   # for local module usage
-  source = "../../"
+  #source = "../../"
 
   vault_addr  = var.vault_addr
   namespace   = var.namespace
