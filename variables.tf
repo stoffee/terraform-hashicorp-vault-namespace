@@ -13,6 +13,10 @@ variable "vault_admin_policy_name" {
   description = "Desired name of the admin policy"
   default     = "super-user-pol"
 }
+variable "vault_admin_group" {
+  description = "Desired name of the admin policy"
+  default     = "VAULT_ADMIN"
+}
 variable "create_vault_admin_policy" {
   description = "Create a admin policy in your new namespace?"
   type        = bool
