@@ -25,6 +25,9 @@ module "vault-namespace" {
   # KV2
   #
   kv2_enabled = true
+  vault_admin_group            = "VAULT_ADMIN"
+  create_vault_admin_policy    = true
+  vault_admin_policy_name      = "supah-user"
 
 
   #

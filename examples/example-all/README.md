@@ -9,7 +9,9 @@ This is an example deployment with all Secret and Auth Engines supported by this
 ```hcl
 module "vault-namespace" {
   source  = "stoffee/vault-namespace/hashicorp//examples/example-all"
-  version = ">= 0.1.8"
+  version = ">= 0.1.7"
+  # for local module usage
+  #source = "../../"
 
   vault_addr  = var.vault_addr
   namespace   = var.namespace
@@ -20,6 +22,8 @@ module "vault-namespace" {
   #
   kv2_enabled = true
 
+
+
   #
   # Transit Engine
   #
@@ -28,7 +32,7 @@ module "vault-namespace" {
   #
   # UserPass Auth
   #
-  userpass_auth_enabled = true
+  userpass_auth_enabled   = true
   userpass_user1          = var.userpass_user1
   userpass_user1_password = var.userpass_user1_password
   userpass_admin          = var.userpass_admin
@@ -52,7 +56,6 @@ module "vault-namespace" {
   aws_secret_enabled           = true
   aws_secret_engine_access_key = var.aws_secret_engine_access_key
   aws_secret_engine_secret_key = var.aws_secret_engine_secret_key
-  aws_secret_full_access_iam_user_enabled = true
 
 
   #
@@ -93,32 +96,34 @@ module "vault-namespace" {
   #
   # GCP Secrets Engine
   #
-  ldap_auth_enabled         = true
-  ldap_auth_engine_ldap_url = var.ldap_auth_engine_ldap_url
-  ldap_auth_engine_bindpass = var.ldap_auth_engine_bindpass
-  ldap_auth_userdn          = var.ldap_auth_userdn
-  ldap_auth_userattr        = var.ldap_auth_userattr
-  ldap_auth_groupattr       = var.ldap_auth_groupattr
-  ldap_auth_groupdn         = var.ldap_auth_groupdn
-  ldap_auth_groupfilter     = var.ldap_auth_groupfilter
-  ldap_auth_binddn          = var.ldap_auth_binddn
-  ldap_auth_insecure_tls    = var.ldap_auth_insecure_tls
-  ldap_auth_starttls        = var.ldap_auth_starttls
+  ldap_auth_enabled            = true
+  ldap_auth_engine_ldap_url    = var.ldap_auth_engine_ldap_url
+  ldap_auth_engine_bindpass    = var.ldap_auth_engine_bindpass
+  ldap_auth_userdn             = var.ldap_auth_userdn
+  ldap_auth_userattr           = var.ldap_auth_userattr
+  ldap_auth_groupattr          = var.ldap_auth_groupattr
+  ldap_auth_groupdn            = var.ldap_auth_groupdn
+  ldap_auth_groupfilter        = var.ldap_auth_groupfilter
+  ldap_auth_binddn             = var.ldap_auth_binddn
+  ldap_auth_insecure_tls       = var.ldap_auth_insecure_tls
+  ldap_auth_starttls           = var.ldap_auth_starttls
+  ldap_vault_admin_group       = var.ldap_vault_admin_group
+  ldap_vault_admin_policy_name = var.ldap_vault_admin_policy_name
 
-  
   #
   # SSH OTP
   #
-  ssh_otp_enabled     = true
-  ssh_default_user    = var.ssh_defautl_user
-  ssh_cidr_list       = var.ssh_cidr_list
+  ssh_otp_engine_enabled = true
+  ssh_default_user       = var.ssh_default_user
+  ssh_cidr_list          = var.ssh_cidr_list
 
   #
   # Kubernetes Auth
   #
-  k8s_auth_engine = true
-  kubernetes_ca_cert = var.kubernetes_ca_cert
+  k8s_auth_enabled       = true
+  kubernetes_ca_cert     = var.kubernetes_ca_cert
   k8s_token_reviewer_jwt = var.k8s_token_reviewer_jwt
 }
+
 
 ```

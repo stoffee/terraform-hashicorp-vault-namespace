@@ -13,6 +13,8 @@ module "vault-namespace" {
   #
   kv2_enabled = true
 
+
+
   #
   # Transit Engine
   #
@@ -85,18 +87,19 @@ module "vault-namespace" {
   #
   # GCP Secrets Engine
   #
-  ldap_auth_enabled         = true
-  ldap_auth_engine_ldap_url = var.ldap_auth_engine_ldap_url
-  ldap_auth_engine_bindpass = var.ldap_auth_engine_bindpass
-  ldap_auth_userdn          = var.ldap_auth_userdn
-  ldap_auth_userattr        = var.ldap_auth_userattr
-  ldap_auth_groupattr       = var.ldap_auth_groupattr
-  ldap_auth_groupdn         = var.ldap_auth_groupdn
-  ldap_auth_groupfilter     = var.ldap_auth_groupfilter
-  ldap_auth_binddn          = var.ldap_auth_binddn
-  ldap_auth_insecure_tls    = var.ldap_auth_insecure_tls
-  ldap_auth_starttls        = var.ldap_auth_starttls
-
+  ldap_auth_enabled            = true
+  ldap_auth_engine_ldap_url    = var.ldap_auth_engine_ldap_url
+  ldap_auth_engine_bindpass    = var.ldap_auth_engine_bindpass
+  ldap_auth_userdn             = var.ldap_auth_userdn
+  ldap_auth_userattr           = var.ldap_auth_userattr
+  ldap_auth_groupattr          = var.ldap_auth_groupattr
+  ldap_auth_groupdn            = var.ldap_auth_groupdn
+  ldap_auth_groupfilter        = var.ldap_auth_groupfilter
+  ldap_auth_binddn             = var.ldap_auth_binddn
+  ldap_auth_insecure_tls       = var.ldap_auth_insecure_tls
+  ldap_auth_starttls           = var.ldap_auth_starttls
+  ldap_vault_admin_group       = var.ldap_vault_admin_group
+  ldap_vault_admin_policy_name = var.ldap_vault_admin_policy_name
 
   #
   # SSH OTP

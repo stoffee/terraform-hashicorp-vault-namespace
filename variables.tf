@@ -20,7 +20,7 @@ variable "vault_admin_group" {
 variable "create_vault_admin_policy" {
   description = "Create a admin policy in your new namespace?"
   type        = bool
-  default     = false
+  default     = true
 }
 variable "userpass_auth_enabled" {
   description = "User Password auth for Vault"
