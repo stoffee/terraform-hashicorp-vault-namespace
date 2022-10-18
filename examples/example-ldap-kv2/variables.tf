@@ -7,6 +7,13 @@ variable "vault_token" {
 variable "vault_addr" {
   description = "Vault URL"
 }
+variable "ldap_vault_admin_group" {
+  default = "ENTVAULT_ADMIN"
+}
+variable "vault_admin_policy_name" {
+  description = "Name to give the admin policy"
+  default     = "super-user-pol"
+}
 variable "ldap_auth_engine_ldap_url" {
   description = "LDAP binddn https://www.vaultproject.io/docs/auth/ldap#url"
   default     = "ldap://ldap.mydomain.com"
