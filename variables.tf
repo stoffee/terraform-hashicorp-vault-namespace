@@ -149,6 +149,10 @@ variable "approle_auth_enabled" {
   type        = bool
   default     = false
 }
+variable "approle_auth_backend_role_name" {
+  description = "AppRole auth role name"
+  default     = "kvfull-approle"
+}
 
 variable "azure_auth_enabled" {
   description = "Enables Azure auth"

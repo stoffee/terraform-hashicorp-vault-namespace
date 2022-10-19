@@ -8,7 +8,7 @@ This is an example deployment with all Secret and Auth Engines supported by this
 
 ```hcl
 module "vault-namespace" {
-  source  = "stoffee/vault-namespace/hashicorp//examples/example-all"
+  source  = "stoffee/vault-namespace/hashicorp"
   version = ">= 0.1.7"
   # for local module usage
   #source = "../../"

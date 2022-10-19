@@ -11,7 +11,7 @@ resource "vault_auth_backend" "approle" {
 resource "vault_approle_auth_backend_role" "kvfull" {
   count          = var.approle_auth_enabled ? 1 : 0
   backend        = vault_auth_backend.approle[0].path
-  role_name      = "kvfull-approle"
+  role_name      = var.approle_auth_backend_role_name
   token_policies = ["default", "kv-full"]
   namespace      = vault_namespace.new.path
 }
