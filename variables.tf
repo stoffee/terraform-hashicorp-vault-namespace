@@ -13,7 +13,7 @@ variable "vault_admin_policy_name" {
   description = "Desired name of the admin policy"
   default     = "super-user-pol"
 }
-variable "vault_admin_group" {
+variable "ldap_vault_admin_group" {
   description = "Desired name of the admin policy"
   default     = "VAULT_ADMIN"
 }
