@@ -60,8 +60,12 @@ variable "kv2_enabled" {
   type        = bool
   default     = false
 }
+variable "kv_secrets_path_name" {
+  description = "Path name for KV2"
+  default     = "secrets"
+}
 variable "ldap_auth_enabled" {
-  description = "Enables GCP Secrets Engine"
+  description = "Enables LDAP Auth Engine"
   type        = bool
   default     = false
 }
