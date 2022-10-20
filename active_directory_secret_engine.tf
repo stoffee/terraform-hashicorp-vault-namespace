@@ -14,6 +14,6 @@ resource "vault_ad_secret_role" "role" {
   backend              = vault_ad_secret_backend.config[0].backend
   role                 = var.ad_secret_engine_role
   service_account_name = var.ad_secret_engine_service_account_name
-  ttl                  = 60
+  ttl                  = var.ad_secret_engine_ttl
   namespace            = vault_namespace.new.path
 }

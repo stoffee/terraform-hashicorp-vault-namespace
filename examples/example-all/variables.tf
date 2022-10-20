@@ -7,6 +7,15 @@ variable "vault_token" {
 variable "vault_addr" {
   description = "Vault URL"
 }
+variable "vault_admin_policy_name" {
+  description = "Desired name of the admin policy"
+  default     = "super-user-pol"
+}
+variable "create_vault_admin_policy" {
+  description = "Create a admin policy in your new namespace?"
+  type        = bool
+  default     = true
+}
 variable "userpass_user1" {
   description = "Desired name of a user to add to Vault UserPass Auth"
   default     = "vaultuser"
@@ -178,4 +187,49 @@ variable "kubernetes_ca_cert" {
 variable "k8s_token_reviewer_jwt" {
   description = "JWT"
   default     = "ZXhhbXBsZQo="
+}
+variable "ad_secrets_enabled" {
+  description = "Enables Active Dirctory Secrets Engine"
+  type        = bool
+  default     = false
+}
+variable "ad_secret_engine_ttl" {
+  description = "Active Dirctory Secrets Engine default TTL"
+  default     = "60"
+}
+variable "ad_secret_engine_backend" {
+  description = "Vault path for AD Secrets Engine https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/ad_secret_role#backend"
+  default     = "ad"
+}
+variable "ad_secret_engine_binddn" {
+  description = "BindDN for AD Secrets Engine"
+  default     = "CN=Administrator,CN=Users,DC=corp,DC=example,DC=net"
+}
+variable "ad_secret_engine_bindpass" {
+  description = "BindPass for AD Secrets Engine"
+  default     = "SuperSecretPassw0rd"
+}
+variable "ad_secret_engine_ldap_url" {
+  description = "LDAP URL for AD"
+  default     = "ldaps://ad.mydomain.com"
+}
+variable "ad_secret_engine_insecure_tls" {
+  description = "INsecure TLS for AD?"
+  default     = true
+}
+variable "ad_secret_engine_userdn" {
+  description = "UserDN for AD Secrets Engine"
+  default     = "CN=Users,DC=corp,DC=example,DC=net"
+}
+variable "ad_secret_engine_role" {
+  description = "Role for AD Secrets Engine https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/ad_secret_role#role"
+  default     = "bob"
+}
+variable "ad_secret_engine_service_account_name" {
+  description = "Service account name for AD Secrets Engine https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/ad_secret_role#service_account_name"
+  default     = "bobs-family"
+}
+variable "ad_secret_engine_library_service_account_names" {
+  description = "Service account names to be used in account vending machine for AD Secrets Engine https://www.vaultproject.io/docs/secrets/ad#service-account-check-out"
+  default     = ["Bob", "Mary"]
 }

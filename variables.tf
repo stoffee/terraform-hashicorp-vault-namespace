@@ -13,10 +13,6 @@ variable "vault_admin_policy_name" {
   description = "Desired name of the admin policy"
   default     = "super-user-pol"
 }
-variable "ldap_vault_admin_group" {
-  description = "Desired name of the admin policy"
-  default     = "VAULT_ADMIN"
-}
 variable "create_vault_admin_policy" {
   description = "Create a admin policy in your new namespace?"
   type        = bool
@@ -68,6 +64,10 @@ variable "ldap_auth_enabled" {
   description = "Enables LDAP Auth Engine"
   type        = bool
   default     = false
+}
+variable "ldap_vault_admin_group" {
+  description = "Desired name of the admin policy"
+  default     = "VAULT_ADMIN"
 }
 variable "ldap_auth_engine_ldap_url" {
   description = "LDAP binddn https://www.vaultproject.io/docs/auth/ldap#binddn"
@@ -156,6 +156,10 @@ variable "approle_auth_enabled" {
 variable "approle_auth_backend_role_name" {
   description = "AppRole auth role name"
   default     = "kvfull-approle"
+}
+variable "approle_auth_backend_token_policies" {
+  description = "Which policies to associate with AppRole auth"
+  default     = ["default", "kv-full"]
 }
 
 variable "azure_auth_enabled" {
@@ -258,6 +262,10 @@ variable "ad_secrets_enabled" {
   type        = bool
   default     = false
 }
+variable "ad_secret_engine_ttl" {
+  description = "Active Dirctory Secrets Engine default TTL"
+  default     = "60"
+}
 variable "ad_secret_engine_backend" {
   description = "Vault path for AD Secrets Engine https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/ad_secret_role#backend"
   default     = "ad"
@@ -288,11 +296,11 @@ variable "ad_secret_engine_role" {
 }
 variable "ad_secret_engine_service_account_name" {
   description = "Service account name for AD Secrets Engine https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/ad_secret_role#service_account_name"
-  default     = "bob"
+  default     = "bobs-family"
 }
 variable "ad_secret_engine_library_service_account_names" {
   description = "Service account names to be used in account vending machine for AD Secrets Engine https://www.vaultproject.io/docs/secrets/ad#service-account-check-out"
-  default     = "[Bob, Mary]"
+  default     = ["Bob", "Mary"]
 }
 variable "vault_transit_path" {
   description = "Mount path for transit engine"
