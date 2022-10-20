@@ -6,7 +6,7 @@ output "vault_ldap_auth_backend_mount_accessor" {
   description = "The ldap auth backend accessor"
   value       = vault_ldap_auth_backend.ldap[*].accessor
 }
-output "vault_admin_identity_group_canonical_id" {
-  description = "The ldap auth backend accessor"
-  value       = vault_identity_group.vault_admin.id
-}
+#output "vault_admin_identity_group_canonical_id" {
+#  description = "The ldap auth backend accessor"
+#  value       = vault_identity_group.vault_admin.id
+#}
