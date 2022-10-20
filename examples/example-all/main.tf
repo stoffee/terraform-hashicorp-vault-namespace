@@ -11,9 +11,9 @@ module "vault-namespace" {
   #
   # Policies
   #
-  vault_admin_policy_name = var.vault_admin_policy_name
+  vault_admin_policy_name   = var.vault_admin_policy_name
   create_vault_admin_policy = var.create_vault_admin_policy
-  
+
   #
   # KV2
   #
@@ -45,16 +45,16 @@ module "vault-namespace" {
   #
   # Active Directory Secrets
   #
-  ad_secrets_enabled = true
-  ad_secret_engine_ttl = var.ad_secret_engine_ttl
-  ad_secret_engine_backend = var.ad_secret_engine_backend
-  ad_secret_engine_binddn = var.ad_secret_engine_binddn
-  ad_secret_engine_bindpass = var.ad_secret_engine_bindpass
-  ad_secret_engine_ldap_url = var.ad_secret_engine_ldap_url
-  ad_secret_engine_insecure_tls = var.ad_secret_engine_insecure_tls
-  ad_secret_engine_userdn = var.ad_secret_engine_userdn
-  ad_secret_engine_role = var.ad_secret_engine_role
-  ad_secret_engine_service_account_name = var.ad_secret_engine_service_account_name
+  ad_secrets_enabled                             = true
+  ad_secret_engine_ttl                           = var.ad_secret_engine_ttl
+  ad_secret_engine_backend                       = var.ad_secret_engine_backend
+  ad_secret_engine_binddn                        = var.ad_secret_engine_binddn
+  ad_secret_engine_bindpass                      = var.ad_secret_engine_bindpass
+  ad_secret_engine_ldap_url                      = var.ad_secret_engine_ldap_url
+  ad_secret_engine_insecure_tls                  = var.ad_secret_engine_insecure_tls
+  ad_secret_engine_userdn                        = var.ad_secret_engine_userdn
+  ad_secret_engine_role                          = var.ad_secret_engine_role
+  ad_secret_engine_service_account_name          = var.ad_secret_engine_service_account_name
   ad_secret_engine_library_service_account_names = var.ad_secret_engine_library_service_account_names
 
 

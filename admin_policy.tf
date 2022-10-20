@@ -2,7 +2,7 @@
 resource "vault_policy" "admin_policy" {
   namespace = vault_namespace.new.path
   name      = var.vault_admin_policy_name
-  policy = <<EOT
+  policy    = <<EOT
   # Manage auth methods broadly across Vault
 path "auth/*"
 {
