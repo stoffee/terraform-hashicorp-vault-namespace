@@ -8,8 +8,8 @@ This module only Deploys KV2 Secrets Engine and UserPass Auth
 
 ```hcl
 module "vault-namespace" {
-  source  = "stoffee/vault-namespace/hashicorp//examples/example-all"
-  version = ">= 0.1.8"
+  source  = "stoffee/vault-namespace/hashicorp"
+  version = ">= 0.11.0"
 
   vault_addr  = "https://vault.mydomain.com:8200"
   namespace   = "MyCoolNewNamespace"
