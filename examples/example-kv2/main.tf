@@ -1,6 +1,6 @@
 module "vault-namespace" {
-  source  = "stoffee/vault-namespace/hashicorp//examples/example-all"
-  version = ">= 0.1.9"
+  source  = "stoffee/vault-namespace/hashicorp"
+  version = ">= 0.11.0"
   # for local module usage
   #source = "../../"
 
