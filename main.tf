@@ -3,11 +3,12 @@ terraform {
     vault = "~> 3.9.1"
   }
 }
-
+/*
 provider "vault" {
   address = var.vault_addr
   token   = var.vault_token
 }
+*/
 
 #--------------------------------------
 # Create new namespace
